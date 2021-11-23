@@ -8,6 +8,10 @@ const fullName = document.querySelector('#fullName');
 const email = document.querySelector('#email');
 const message = document.querySelector('#message');
 
+const er =
+	/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+
 // Event Listeners
 
 eventListeners();
@@ -22,6 +26,10 @@ function eventListeners() {
 function startApp() {
 	btnSend.disabled = true;
 	btnSend.classList.add('cursor-not-allowed', 'opacity-50');
+
+  email.addEventListener('blur', validateForm);
+	fullName.addEventListener('blur', validateForm);
+	message.addEventListener('blur', validateForm);
 }
 
 function validateForm(e) {
@@ -42,6 +50,7 @@ function validateForm(e) {
 	}
 
 	if (er.test(email.value) && fullName.value !== '' && message.value !== '') {
-		btnEnviar.disabled = false;
-		btnEnviar.classList.remove('cursor-not-allowed', 'opacity-50');
+		btnSend.disabled = false;
+		btnSend.classList.remove('cursor-not-allowed', 'opacity-50');
 	}
+}
