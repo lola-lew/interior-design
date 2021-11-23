@@ -84,7 +84,7 @@ table {
 }
 
 .form {
-  padding-top: 5rem;
+  padding-top: 3rem;
 }
 
 .contact {
@@ -109,7 +109,9 @@ table {
     height: 5rem;
   }
 
-
+.btn {
+  width: 30%;
+}
 
 .bg-image {
   background-color: whitesmoke; /* Used if the image is unavailable */
